@@ -176,21 +176,16 @@
 
   <button id="activarSonido" style="display: none;">Activar Sonido</button>
 
-  <script>
-    function initAudio() {
-      var audio = document.getElementById("miAudio");
-      audio.play().catch(function(error) {
-        document.getElementById("activarSonido").style.display = "block";
-      });
-    }
+<audio id="audio">
+  <source src="audio-file.mp3" type="audio/mpeg">
+</audio>
 
-    document.getElementById("activarSonido").addEventListener("click", function() {
-      var audio = document.getElementById("miAudio");
-      audio.muted = false;  // Activar sonido
-      audio.play();         // Continuar reproduciendo
-      this.style.display = "none";  // Ocultar el botón
-    });
-  </script>
+<script>
+  document.body.addEventListener('touchstart', function() {
+    var audio = document.getElementById('audio');
+    audio.play();
+  }, { once: true });
+</script>
 
   <script src="anim.js"></script>
   <script src="main.js"></script>
